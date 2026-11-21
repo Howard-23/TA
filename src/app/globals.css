@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f7f7;
+  --foreground: #2a3f54;
+  --sidebar: #2a3f54;
+  --primary: #1abb9c;
+  --primary-hover: #169f85;
+  --danger: #d9534f;
+  --warning: #f0ad4e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar: var(--sidebar);
+  --color-primary: var(--primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+.progress-bar-animated {
+  animation: progress-bar-stripes 1s linear infinite;
+}
+@keyframes progress-bar-stripes {
+  from { background-position: 1rem 0; }
+  to { background-position: 0 0; }
+}
+
+#responseContainer::-webkit-scrollbar { width: 6px; }
+#responseContainer::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.disabled-date {
+  color: #ccc !important;
+  pointer-events: none;
+}
+
+.chunk-detail {
+  border-left: 4px solid #007bff;
+  margin-bottom: 12px;
+  padding: 12px 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: white;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s;
+  max-width: 360px;
+}
+.toast-notification.show { opacity: 1; }
+.toast-notification.success { background: #1abb9c; }
+.toast-notification.error { background: #d9534f; }
+.toast-notification.warning { background: #f0ad4e; }
+.toast-notification.info { background: #5bc0de; }
